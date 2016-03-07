@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.File;
 import javax.swing.*;
+import java.net.URL;
 
 /**
  *
@@ -16,10 +18,21 @@ public class Linuxwallpaper extends JFrame {
 
     TrayIcon trayIcon;
     SystemTray tray;
+    String path;
 
     private Linuxwallpaper() {
         super("Wallpapers");
         this.setVisible(false);
+	
+        URL location = Linuxwallpaper.class.getProtectionDomain().getCodeSource().getLocation();
+					
+	path = location.getPath();
+	File f = new File(path);
+        while(path.indexOf(".jar") != -1){
+            f = f.getParentFile();
+            path = f.getAbsolutePath();
+       	}
+
         try {
             if (SystemTray.isSupported()) {
                 tray = SystemTray.getSystemTray();
@@ -30,7 +43,7 @@ public class Linuxwallpaper extends JFrame {
                 defaultItem.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("./wallpapers.sh");
+                            ProcessBuilder pb = new ProcessBuilder(path + "/wallpapers.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
@@ -46,7 +59,7 @@ public class Linuxwallpaper extends JFrame {
                 defaultItem.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("./wallpaperchange.sh");
+                            ProcessBuilder pb = new ProcessBuilder(path + "/wallpaperchange.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
@@ -62,7 +75,7 @@ public class Linuxwallpaper extends JFrame {
                 defaultItem.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("./removeCurrent.sh");
+                            ProcessBuilder pb = new ProcessBuilder(path + "/removeCurrent.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
@@ -72,7 +85,7 @@ public class Linuxwallpaper extends JFrame {
                         } catch (IOException ex) {
                         }
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("./wallpaperchange.sh");
+                            ProcessBuilder pb = new ProcessBuilder(path + "/wallpaperchange.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
