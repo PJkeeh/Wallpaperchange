@@ -10,7 +10,7 @@ import javax.swing.*;
 
 /**
  *
- * @author pieter
+ * @author Pieter Vandamme
  */
 public class Linuxwallpaper extends JFrame {
 
@@ -30,7 +30,7 @@ public class Linuxwallpaper extends JFrame {
                 defaultItem.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("/home/pieter/scripts/wallpapers.sh");
+                            ProcessBuilder pb = new ProcessBuilder("./wallpapers.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
@@ -46,7 +46,7 @@ public class Linuxwallpaper extends JFrame {
                 defaultItem.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("/home/pieter/scripts/wallpaperchange.sh");
+                            ProcessBuilder pb = new ProcessBuilder("./wallpaperchange.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
@@ -62,7 +62,7 @@ public class Linuxwallpaper extends JFrame {
                 defaultItem.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("/home/pieter/scripts/removeWallpaper.sh");
+                            ProcessBuilder pb = new ProcessBuilder("./removeCurrent.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
@@ -72,7 +72,7 @@ public class Linuxwallpaper extends JFrame {
                         } catch (IOException ex) {
                         }
                         try {
-                            ProcessBuilder pb = new ProcessBuilder("/home/pieter/scripts/wallpaperchange.sh");
+                            ProcessBuilder pb = new ProcessBuilder("./wallpaperchange.sh");
                             Process p = pb.start();
                             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
                             String line = null;
