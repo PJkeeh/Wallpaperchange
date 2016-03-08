@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Getting wallpapers"
 
-mkdir /home/pieter/scripts/wall
-cd /home/pieter/scripts/wall
+mkdir ./wall
+cd ./wall
 mkdir temp
 cd temp
 
@@ -10,22 +10,21 @@ curl -s http://www.reddit.com/r/wallpapers/.json | tr ',' '\n' | grep url.*\.jpg
 
 a=1
 for i in *.jpg; do
-  test=$(identify /home/pieter/scripts/wall/temp/$i | grep '[0-9][0-9][0-9][0-9]x[0-9][0-9][0-9][0-9]' -o)
+  test=$(identify $i | grep '[0-9][0-9][0-9][0-9]x[0-9][0-9][0-9][0-9]' -o)
   if [ -n "$test" ]; then
   	new=$a #04 pad to length of 4
   	mv ${i} ${new}.jpg
   	a=`expr "$a" + 1`
   	echo $a
   else
-	rm /home/pieter/scripts/wall/temp/$i
+	$i
   fi
 done
 
-if [ -f /home/pieter/scripts/wall/temp/1.jpg ]; then
-	rm ../*.jpg
-	mv *.jpg ../
-	cd ..
-	
+cd ../..
+
+if [ -f ./wall/temp/1.jpg ]; then
+	rm ./wall/*.jpg
+	mv ./wall/temp/*.jpg ./wall/
 fi
-	rm -r /home/pieter/scripts/wall/temp
-cd ~
+rm -r ./wall/temp

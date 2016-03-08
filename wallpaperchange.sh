@@ -16,12 +16,12 @@ if [ "$c" = "." ]; then
 	b=$(echo $a | cut -c1-1)
 fi
 b=`expr "$b" + 1`
-if [ -f /home/pieter/scripts/wall/$b.jpg ]; then
+if [ -f $path/wall/$b.jpg ]; then
 	echo	""
 else
 	b=1
 fi
-gsettings set org.gnome.desktop.background picture-uri file:///home/pieter/scripts/wall/$b.jpg
+gsettings set org.gnome.desktop.background picture-uri file://$HOME/.wallpaperchange/wall/$b.jpg
 echo 'Wallpaper set to '$b
 
 

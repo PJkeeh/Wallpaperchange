@@ -1,11 +1,12 @@
-#!/bin/sh
+#!/bin/bash
+cd ~/.wallpaperchange
 
-nohup ~/scripts/Linuxwallpaper.jar &
+nohup ./Linuxwallpaper.jar &
 
 sh wallpapers.sh
 
 while true 
 do
-    sh /home/pieter/scripts/wallpaperchange.sh
-    sleep 500
+    sh wallpaperchange.sh
+    sleep 5m
 done

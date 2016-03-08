@@ -1,8 +1,6 @@
 #!/bin/bash
 cwd=`pwd`
 
-cd ~/scripts/wall
-
 teller=0
 a=$1
 
