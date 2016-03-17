@@ -6,4 +6,4 @@ How to install:
 
 1) Run install.sh
 
-2) Add sh ~/scripts/loopWallpaper.sh to your startup applications
+2) Add sh ~/.wallpaperchange/loopWallpaper.sh to your startup applications
