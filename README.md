@@ -13,6 +13,8 @@ How to install:
 
 2) Add sh ~/.wallpaperchange/loopWallpaper.sh to your startup applications
 
+3) To have the Java GUI, add java --jar ~/.wallpaperchange/Linuxwallpaper.jar to your startup applications
+
 
 # Known issues
 
