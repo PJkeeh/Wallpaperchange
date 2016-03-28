@@ -19,3 +19,6 @@ How to install:
     
 2) check if the link to javac is correct
     sudo update-alternatives --config javac
+    
+3) Alternativelt you can reselect the right java version using
+    sudo update-alternatives --config java
