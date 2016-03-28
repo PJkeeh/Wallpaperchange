@@ -1,8 +1,13 @@
 # Wallpaperchange
 Gets wallpapers of reddit and shows a new one every 5 minutes as desktop background. Designed for Ubuntu Unity.
 
+# Requirements
+ImageMagick (sudo apt-get install ImageMagick)
+openjdk (sudo apt-get install openjdk-8-jdk)
+
 
 How to install:
+0) Check if requirements are met
 
 1) Run install.sh
 
@@ -22,3 +27,8 @@ How to install:
     
 3) Alternativelt you can reselect the right java version using
     sudo update-alternatives --config java
+    
+./wallpapers.sh: line 13: identify: command not found
+
+1) check if ImageMagick is installed:
+    sudo apt-get install ImageMagick
