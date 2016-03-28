@@ -16,7 +16,7 @@ if [ "$c" = "." ]; then
 	b=$(echo $a | cut -c1-1)
 fi
 b=`expr "$b" + 1`
-if [ -f $path/wall/$b.jpg ]; then
+if [ -f $HOME/.wallpaperchange/wall/$b.jpg ]; then
 	echo	""
 else
 	b=1
