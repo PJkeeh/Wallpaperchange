@@ -6,7 +6,7 @@ cd ./wall
 mkdir temp
 cd temp
 
-curl -s http://www.reddit.com/r/wallpapers/.json | tr ',' '\n' | grep url.*\.jpg -o | cut -c8- | xargs wget
+curl -A "MyOwnUserAgentString" -s http://www.reddit.com/r/wallpapers/.json | tr ',' '\n' | grep url.*\.jpg -o | cut -c8- | xargs wget
 
 a=1
 for i in *.jpg; do
